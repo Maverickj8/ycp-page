@@ -58,7 +58,7 @@ export default function HeroCarousel() {
             }`}
           >
             {/* Placeholder background - Replace with actual images */}
-            <div className="w-full h-full bg-gradient-to-br from-purple-600 via-pink-500 to-purple-700 flex items-center justify-center before:absolute before:inset-0 before:bg-black/60 before:z-10">
+            <div className="w-full h-full bg-gradient-to-br from-purple-600 via-pink-500 to-purple-700 flex items-center justify-center before:absolute before:inset-0 before:bg-black/50 before:z-10">
               <Image
                 src={slide.image}
                 fill
