@@ -7,7 +7,13 @@ export const metadata = {
   title: "YCP - Young Catholic Professionals",
   description:
     "Young Catholic Professionals - Building a strong community of faith and professional excellence",
+    icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 };
+
 
 export default function RootLayout({ children }) {
   return (
