@@ -95,7 +95,7 @@ export default function AdvertBanner() {
   const currentAdvert = adverts[currentIndex]
 
   return (
-    <div className="sticky top-0 z-50 bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg">
+    <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-12 md:h-14">
           {/* Left Arrow */}

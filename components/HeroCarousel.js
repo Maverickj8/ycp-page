@@ -1,69 +1,70 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import Image from 'next/image'
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 export default function HeroCarousel() {
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   // Placeholder images - replace with actual images
   const slides = [
     {
-      image: '/images/hero-1.jpg',
-      alt: 'YCP Community',
+      image: "/images/hero/hero2.jpeg",
+      alt: "YCP Community",
       overlay: true,
     },
     {
-      image: '/images/hero-2.jpg',
-      alt: 'St. Augustine',
+      image: "/images/hero/hero1.jpeg",
+      alt: "St. Augustine",
       overlay: true,
     },
     {
-      image: '/images/hero-3.jpg',
-      alt: 'YCP Activities',
+      image: "/images/hero/hero3.jpeg",
+      alt: "YCP Activities",
       overlay: true,
     },
-  ]
+  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 5000)
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
 
-    return () => clearInterval(timer)
-  }, [slides.length])
+    return () => clearInterval(timer);
+  }, [slides.length]);
 
   const goToSlide = (index) => {
-    setCurrentSlide(index)
-  }
+    setCurrentSlide(index);
+  };
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length)
-  }
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
-  }
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
 
   return (
     <div className="relative h-[600px] md:h-[700px] overflow-hidden">
       {/* Carousel Container */}
-      <div className="relative w-full h-full">
+      <div className="relative w-full h-screen">
         {slides.map((slide, index) => (
           <div
             key={index}
             className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
+              index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
           >
             {/* Placeholder background - Replace with actual images */}
             <div className="w-full h-full bg-gradient-to-br from-purple-600 via-pink-500 to-purple-700 flex items-center justify-center">
-              <div className="text-center text-white">
-                <div className="text-6xl mb-4">🕊️</div>
-                <p className="text-xl">YCP Hero Image {index + 1}</p>
-                <p className="text-sm mt-2 text-purple-100">Replace with actual images</p>
-              </div>
+              <Image
+                src={slide.image}
+                fill
+                style={{ objectFit: "cover" }}
+                alt={slide.alt}
+              />
             </div>
 
             {/* Overlay */}
@@ -79,10 +80,14 @@ export default function HeroCarousel() {
         <div className="text-center px-4">
           {/* YCP Logo Placeholder */}
           <div className="mb-6">
-            <div className="inline-block bg-white bg-opacity-90 rounded-full p-6 shadow-lg">
-              <div className="text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                YCP
-              </div>
+            <div className="inline-block bg-white bg-opacity-90 rounded-full p-2 shadow-lg">
+              <Image
+                src={"/images/logo/logo.png"}
+                width={70}
+                height={70}
+                className="rounded-full"
+                alt={"logo"}
+              />
             </div>
           </div>
 
@@ -120,13 +125,13 @@ export default function HeroCarousel() {
             onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-all ${
               index === currentSlide
-                ? 'bg-white w-8'
-                : 'bg-white bg-opacity-50 hover:bg-opacity-75'
+                ? "bg-white w-8"
+                : "bg-white bg-opacity-50 hover:bg-opacity-75"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
     </div>
-  )
+  );
 }
